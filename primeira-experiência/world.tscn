@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3matytc6opvd"]
 
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" path="res://objects/box_bouncy.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" path="res://objects/regular_box.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://b1dbsauea0ry" path="res://box_bouncy.tscn" id="1_fj7yv"]
+[ext_resource type="Script" uid="uid://dawknsyxws7us" path="res://game_manager.gd" id="1_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://capc43ogjj6e1" path="res://objects/box_regular.tscn" id="2_tlwt5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gv5m4"]
 rough = true
@@ -16,7 +16,7 @@ metadata/_edit_horizontal_guides_ = [-181.0]
 
 [node name="game_manager" type="Node" parent="."]
 script = ExtResource("1_tlwt5")
-object_templates = Array[PackedScene]([ExtResource("2_tlwt5"), ExtResource("2_fj7yv")])
+object_templates = Array[PackedScene]([ExtResource("1_fj7yv"), ExtResource("2_tlwt5")])
 
 [node name="Background" type="ColorRect" parent="."]
 offset_left = 32.0
@@ -42,54 +42,56 @@ position = Vector2(509, 434.25)
 rotation = -0.00269756
 shape = SubResource("RectangleShape2D_f3sb7")
 
-[node name="box_bouncy" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(606, 80)
+[node name="box_bouncy" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(273, 92)
 
-[node name="box_bouncy2" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(428, 39)
+[node name="box_bouncy2" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(409, 67)
 
-[node name="box_bouncy3" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(341, 112)
+[node name="box_bouncy3" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(374, 235)
 
-[node name="box_bouncy4" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(231, 188)
+[node name="box_bouncy4" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(544, 95)
 
-[node name="box_bouncy5" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(243, 73)
-rotation = -0.127228
+[node name="box_bouncy5" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(521, 184)
 
-[node name="box_bouncy6" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(498, 178)
+[node name="box_bouncy6" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(703, 65)
 
-[node name="box_bouncy7" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(113, 152)
+[node name="box_regular" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(346, 157)
 
-[node name="box_bouncy8" parent="." instance=ExtResource("2_fj7yv")]
-position = Vector2(630, 16)
+[node name="box_regular2" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(468, 120)
 
-[node name="RigidBody2D2" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(158, 59)
+[node name="box_regular3" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(321, 46)
 
-[node name="RigidBody2D3" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(194, 119)
+[node name="box_regular4" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(576, 187)
 
-[node name="RigidBody2D4" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(269, 124)
+[node name="box_regular5" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(640, 108)
 
-[node name="RigidBody2D6" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(364, 10)
+[node name="box_regular6" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(434, 187)
 
-[node name="RigidBody2D8" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(503, -2)
+[node name="box_regular7" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(434, 264)
 
-[node name="RigidBody2D9" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(533, 63)
+[node name="box_bouncy7" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(494, 235)
 
-[node name="RigidBody2D10" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(221, 3)
+[node name="box_bouncy8" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(705, 182)
 
-[node name="RigidBody2D12" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(675, 75)
+[node name="box_regular8" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(503, 37)
 
-[node name="RigidBody2D13" parent="." instance=ExtResource("2_tlwt5")]
-position = Vector2(381, 180)
+[node name="box_regular9" parent="." instance=ExtResource("2_tlwt5")]
+position = Vector2(611, 21)
+
+[node name="box_bouncy9" parent="." instance=ExtResource("1_fj7yv")]
+position = Vector2(562, 244)
