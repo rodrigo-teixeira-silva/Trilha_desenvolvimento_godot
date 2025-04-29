@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://l7wfuadtwdk0"]
+[gd_scene load_steps=15 format=3 uid="uid://l7wfuadtwdk0"]
 
 [ext_resource type="Texture2D" uid="uid://bu1rv7dvsovpo" path="res://assets/platform/Tilesheet/platformerPack_industrial_tilesheet.png" id="1_wtcfe"]
 [ext_resource type="Texture2D" uid="uid://j4rvw6j2ynwn" path="res://assets/PNG/game_background_1/layers/sky.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://63yldghn5amu" path="res://assets/PNG/game_background_1/layers/rocks_2.png" id="5_d21ai"]
 [ext_resource type="Script" uid="uid://cua4fd486hjuv" path="res://scripts/character_body_2d.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://ybvfvvifjvgj" path="res://assets/alien/PNG/shipBlue_manned.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://dmedbj635xswq" path="res://assets/PNG/game_background_1/layers/rocks_1.png" id="5_rj586"]
+[ext_resource type="Texture2D" uid="uid://dalkfr2pf6bjf" path="res://assets/PNG/game_background_1/layers/clouds_1.png" id="6_ir8iy"]
+[ext_resource type="Texture2D" uid="uid://dgqgw34wv1eqd" path="res://assets/PNG/game_background_1/layers/clouds_2.png" id="7_hqns4"]
+[ext_resource type="Texture2D" uid="uid://br7a4w7jivb0m" path="res://assets/PNG/game_background_1/layers/clouds_3.png" id="8_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://d1f2sb6m0jequ" path="res://assets/PNG/game_background_1/layers/clouds_4.png" id="9_0h7mo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
 
@@ -1741,5 +1747,54 @@ transform = Transform2D(0.6, 0, 0, 0.6, 0, 0)
 motion_scale = Vector2(0, 0)
 
 [node name="sprite" type="Sprite2D" parent="ParallaxBackground/sky"]
+position = Vector2(31.6667, 0)
 texture = ExtResource("4_0hol4")
 centered = false
+
+[node name="Rocks1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/Rocks1"]
+position = Vector2(911.667, 663.333)
+texture = ExtResource("5_rj586")
+
+[node name="cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/cloud1"]
+position = Vector2(911.667, 663.333)
+texture = ExtResource("6_ir8iy")
+
+[node name="cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/cloud2"]
+position = Vector2(911.667, 663.333)
+texture = ExtResource("7_hqns4")
+
+[node name="cloud3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/cloud3"]
+position = Vector2(911.667, 663.333)
+texture = ExtResource("8_x0ka3")
+
+[node name="cloud4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/cloud4"]
+position = Vector2(911.667, 663.333)
+texture = ExtResource("9_0h7mo")
+
+[node name="Rocks2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(1920, 0)
+
+[node name="sprite" type="Sprite2D" parent="ParallaxBackground/Rocks2"]
+position = Vector2(955, 676.667)
+texture = ExtResource("5_d21ai")
