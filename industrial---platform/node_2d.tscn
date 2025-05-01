@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://l7wfuadtwdk0"]
 
 [ext_resource type="Texture2D" uid="uid://bu1rv7dvsovpo" path="res://assets/platform/Tilesheet/platformerPack_industrial_tilesheet.png" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://j4rvw6j2ynwn" path="res://assets/PNG/game_background_1/layers/sky.png" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://b2j6taaeh7ort" path="res://assets/PNG/game_background_3/layers/sky.png" id="4_ir8iy"]
 [ext_resource type="Texture2D" uid="uid://63yldghn5amu" path="res://assets/PNG/game_background_1/layers/rocks_2.png" id="5_d21ai"]
 [ext_resource type="Script" uid="uid://cua4fd486hjuv" path="res://scripts/character_body_2d.gd" id="5_kdubu"]
 [ext_resource type="Texture2D" uid="uid://ybvfvvifjvgj" path="res://assets/alien/PNG/shipBlue_manned.png" id="5_q6r6c"]
@@ -1748,7 +1748,7 @@ motion_scale = Vector2(0, 0)
 
 [node name="sprite" type="Sprite2D" parent="ParallaxBackground/sky"]
 position = Vector2(31.6667, 0)
-texture = ExtResource("4_0hol4")
+texture = ExtResource("4_ir8iy")
 centered = false
 
 [node name="Rocks1" type="ParallaxLayer" parent="ParallaxBackground"]
