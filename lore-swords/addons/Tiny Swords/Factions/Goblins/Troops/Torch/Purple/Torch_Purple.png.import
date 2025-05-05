@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dem0vaia3i8ss"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://hskqf6hmqmmk"
+path="res://.godot/imported/Torch_Purple.png-4d95e97245e9a4e21f2edce4d72ad807.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://addons/Tiny Swords/Factions/Goblins/Troops/Torch/Purple/Torch_Purple.png"
+dest_files=["res://.godot/imported/Torch_Purple.png-4d95e97245e9a4e21f2edce4d72ad807.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
