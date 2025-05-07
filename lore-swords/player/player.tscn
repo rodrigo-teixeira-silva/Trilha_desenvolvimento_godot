@@ -5,19 +5,29 @@
 [sub_resource type="GDScript" id="GDScript_oul6g"]
 script/source = "extends CharacterBody2D
 
+@export var speed: float = 3
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 
 var is_running: bool = false 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"ui_accept\"):
-		if is_running:
-			animation_player.play(\"idle\")
-			is_running = false
-		else: 
-			animation_player.play(\"run\")
-			is_running = true 	
-		
+#chamado em uma frequencia variavel 
+#func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed(\"ui_accept\"):
+		#if is_running:
+			#animation_player.play(\"idle\")
+			#is_running = false
+		#else: 
+			#animation_player.play(\"run\")
+			#is_running = true 	
+		#
+#		chamado em uma frequencia variavel 
+func _physics_process(delta: float) -> void:	
+	var input_vector = Input.get_vector(\"ui_left\", \"ui_right\",\"ui_up\", \"ui_down\")
+	var target_velocity = input_vector * speed * 100.0
+	velocity = lerp(velocity, target_velocity, 0.05)
+	move_and_slide()
+	
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
@@ -101,6 +111,7 @@ _data = {
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(120, 117)
+motion_mode = 1
 script = SubResource("GDScript_oul6g")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -119,7 +130,3 @@ debug_color = Color(0, 0.6, 0.701961, 0.0745098)
 libraries = {
 &"": SubResource("AnimationLibrary_g6k8r")
 }
-
-[node name="WarriorPurple" type="Sprite2D" parent="."]
-position = Vector2(1092, 363)
-texture = ExtResource("1_liy72")
