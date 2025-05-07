@@ -1,19 +1,125 @@
-[gd_scene load_steps=3 format=3 uid="uid://6coae0m3uhdl"]
+[gd_scene load_steps=9 format=3 uid="uid://dv35555e6bb12"]
 
 [ext_resource type="Texture2D" uid="uid://c4jrqj3mppc31" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_liy72"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fui21"]
+[sub_resource type="GDScript" id="GDScript_oul6g"]
+script/source = "extends CharacterBody2D
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer 
+
+var is_running: bool = false 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"ui_accept\"):
+		if is_running:
+			animation_player.play(\"idle\")
+			is_running = false
+		else: 
+			animation_player.play(\"run\")
+			is_running = true 	
+		
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
 radius = 18.0
 height = 60.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_rkbax"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g1dw6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_yw30f"]
+resource_name = "new_animation"
+step = 0.0
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6k8r"]
+_data = {
+&"RESET": SubResource("Animation_g1dw6"),
+&"idle": SubResource("Animation_rkbax"),
+&"new_animation": SubResource("Animation_yw30f"),
+&"run": SubResource("Animation_qjkh3")
+}
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(120, 117)
+script = SubResource("GDScript_oul6g")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -25)
+position = Vector2(0, -28)
 texture = ExtResource("1_liy72")
 hframes = 6
 vframes = 8
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -22)
-shape = SubResource("CapsuleShape2D_fui21")
+position = Vector2(0, -27)
+shape = SubResource("CapsuleShape2D_oul6g")
+debug_color = Color(0, 0.6, 0.701961, 0.0745098)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g6k8r")
+}
+
+[node name="WarriorPurple" type="Sprite2D" parent="."]
+position = Vector2(1092, 363)
+texture = ExtResource("1_liy72")
