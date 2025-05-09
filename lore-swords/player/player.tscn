@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv35555e6bb12"]
+[gd_scene load_steps=15 format=3 uid="uid://dv35555e6bb12"]
 
 [ext_resource type="Texture2D" uid="uid://c4jrqj3mppc31" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_liy72"]
 
@@ -7,30 +7,78 @@ script/source = "extends CharacterBody2D
 
 @export var speed: float = 3
 
+@onready var sprite: Sprite2D = $sprite
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer 
 
 var is_running: bool = false 
+var is_attacking: bool = false
+var attack_cooldown: float = 0.0
 
-#chamado em uma frequencia variavel 
-
-	
+func _process(delta: float)-> void:
+	#Atualizar temporizador de ataque 
+	if is_attacking:
+		attack_cooldown -= delta
+		if attack_cooldown <= 0.0:
+			is_attacking = false
+			animation_player.play(\"idle\")
 		
+
 func _physics_process(delta: float) -> void:
-	
-
 	var input_vector = Input.get_vector(\"mover_esquerda\", \"mover_direita\", \"mover_cima\", \"mover_baixo\")	
-
+	
+	#close deadzone
+	var deadzone = 0.15
+	if abs(input_vector.x) < 0.15:
+		input_vector.x = 0.0
+		
+	if abs(input_vector.y) < 0.15:
+		input_vector.y = 0.0	
+		
+#
 	var target_velocity = input_vector * speed * 100.0
-	velocity = lerp(velocity, target_velocity , 0.05)
-	
-	
+	if is_attacking:
+		target_velocity *= 0.25
+	velocity = lerp(velocity, target_velocity, 0.05)
 	move_and_slide()
 	
-	if input_vector != Vector2.ZERO:
-		animation_player.play(\"run\")
+	# Atualiza o estado de is_running
+	var was_running = is_running 
+	is_running = not input_vector.is_zero_approx()
+	
+	# Rodar a animação
+	if was_running != is_running:
+		if is_running:
+			animation_player.play(\"run\")
+		else:
+			animation_player.play(\"idle\")
+	
+	# Girar o sprite 	
+	if input_vector.x > 0:
+		sprite.flip_h = false
+	elif input_vector.x < 0:		
+		sprite.flip_h = true
+		
+		
+		#ataque 
+		
+	if Input.is_action_just_pressed(\"ataque\"):
+		attack()
+		
+func attack() -> void:
+	if is_attacking:
+		return
+	#ataque_side_1 
+	#ataque_side_2 
+	#rodar animação
+	
+	
+	animation_player.play( \"ataque_cima-baixo\")
+	#confirmar temporizazador 		
+	attack_cooldown = 0.6
+	#marcar ataque
+	is_attacking = true	
 			
-	else: 
-		animation_player.play(\"idle\")
 			
 "
 
@@ -105,9 +153,123 @@ tracks/0/keys = {
 "values": [6, 7, 8, 9, 10, 11, 12]
 }
 
+[sub_resource type="Animation" id="Animation_oul6g"]
+resource_name = "ataque_cima-baixo"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_g6k8r"]
+resource_name = "ataque_baixo-cima"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 19, 20, 21, 22, 23, 25]
+}
+
+[sub_resource type="Animation" id="Animation_boad6"]
+resource_name = "ataque_esquerda-direita"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+
+[sub_resource type="Animation" id="Animation_rgyib"]
+resource_name = "ataque_direita-esquerda"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34, 35, 36]
+}
+
+[sub_resource type="Animation" id="Animation_hg6s5"]
+resource_name = "ataque_costa-direita"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_8t03j"]
+resource_name = "ataque_costa-esquerda"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [42, 43, 44, 45, 46, 47, 47]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6k8r"]
 _data = {
 &"RESET": SubResource("Animation_g1dw6"),
+&"ataque_baixo-cima": SubResource("Animation_g6k8r"),
+&"ataque_cima-baixo": SubResource("Animation_oul6g"),
+&"ataque_costa-direita": SubResource("Animation_hg6s5"),
+&"ataque_costa-esquerda": SubResource("Animation_8t03j"),
+&"ataque_direita-esquerda": SubResource("Animation_rgyib"),
+&"ataque_esquerda-direita": SubResource("Animation_boad6"),
 &"idle": SubResource("Animation_rkbax"),
 &"new_animation": SubResource("Animation_yw30f"),
 &"run": SubResource("Animation_qjkh3")
@@ -119,7 +281,7 @@ motion_mode = 1
 script = SubResource("GDScript_oul6g")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -28)
+position = Vector2(-2, -28)
 texture = ExtResource("1_liy72")
 hframes = 6
 vframes = 8
