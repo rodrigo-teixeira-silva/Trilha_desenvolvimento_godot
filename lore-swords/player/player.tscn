@@ -93,8 +93,7 @@ func attack() -> void:
 	if is_attacking:
 		return
 	#ataque_side_1 
-	#ataque_side_2 
-	#rodar animação
+	#ataque_siide2
 	
 	#Tocar animaçã
 	animation_player.play( \"ataque_cima-baixo\")
