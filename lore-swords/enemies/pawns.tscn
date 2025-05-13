@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://tq5jxap46edg"]
+
+[ext_resource type="Texture2D" uid="uid://fmvx1ve21i7y" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_13x4r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ei1y"]
+radius = 17.0
+height = 50.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex7vm"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oixp8"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wsrq"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1rrw"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwpq1"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74i12"]
+atlas = ExtResource("1_13x4r")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gokgo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex7vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oixp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wsrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1rrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwpq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74i12")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Pawns" type="CharacterBody2D"]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_3ei1y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 3)
+sprite_frames = SubResource("SpriteFrames_gokgo")
+autoplay = "default"
+frame_progress = 0.0666513
