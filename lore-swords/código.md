@@ -100,4 +100,3 @@ func attack() -> void:
 	is_attacking = true	
 			
 			
-
