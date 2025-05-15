@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://tq5jxap46edg"]
+[gd_scene load_steps=12 format=3 uid="uid://tq5jxap46edg"]
 
-[ext_resource type="Script" uid="uid://jdtpfpdne5vk" path="res://enemies/behavior/follow.gd" id="1_3ei1y"]
+[ext_resource type="Script" uid="uid://bxwdxw43eov6c" path="res://enemies/enemy.gd" id="1_3ei1y"]
 [ext_resource type="Texture2D" uid="uid://fmvx1ve21i7y" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Red/Pawn_Red.png" id="1_13x4r"]
+[ext_resource type="Script" uid="uid://jdtpfpdne5vk" path="res://enemies/behavior/follow.gd" id="3_ex7vm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3ei1y"]
 radius = 17.0
@@ -70,3 +71,6 @@ position = Vector2(1, 3)
 sprite_frames = SubResource("SpriteFrames_gokgo")
 autoplay = "default"
 frame_progress = 0.0666513
+
+[node name="follow" type="Node" parent="."]
+script = ExtResource("3_ex7vm")
