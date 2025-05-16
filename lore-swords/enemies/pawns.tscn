@@ -58,7 +58,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Pawns" type="CharacterBody2D"]
+[node name="Pawns" type="CharacterBody2D" groups=["enemyes"]]
 motion_mode = 1
 script = ExtResource("1_3ei1y")
 
