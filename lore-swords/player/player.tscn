@@ -10,6 +10,7 @@ script/source = "extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sword_area: Area2D = $SwordArea
  
 var input_vector: Vector2 = Vector2(0,0)
 var is_running: bool = false 
@@ -106,14 +107,14 @@ func attack() -> void:
 
 	
 func deal_damage_to_enemies() -> void:
-	
-	var enemies = get_tree().get_nodes_in_group(\"enemyes\")
-	for enemy in enemies:
-		enemy.damage(suword_damage)
-		#pass
-	#print(\"Enemies\", enemies.size())
-	#pass			
-			#
+	var bodies = sword_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group(\"enemyes\"):
+			var enemy: Enemy = body
+			enemy.damage(suword_damage)
+			
+			
+		
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
@@ -394,7 +395,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
-radius = 81.0062
+radius = 93.0054
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(120, 117)
@@ -418,9 +419,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_g6k8r")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SwordArea" type="Area2D" parent="."]
 position = Vector2(0, -27)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
 position = Vector2(4, 7)
 shape = SubResource("CircleShape2D_oul6g")
+debug_color = Color(0.643137, 0.521569, 0.164706, 0)
