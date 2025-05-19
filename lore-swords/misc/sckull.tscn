@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://pr5odv0t6y41"]
+
+[ext_resource type="Texture2D" uid="uid://br3qt028akp6l" path="res://addons/Tiny Swords/Factions/Knights/Troops/Dead/Dead.png" id="1_hu56o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3weq"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s72y"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7trm"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra8an"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh0ok"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fc8m"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64vxs"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rugq"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojdw0"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pion5"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmmoe"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wr43"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmhv8"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr2c7"]
+atlas = ExtResource("1_hu56o")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oq7iv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3weq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0s72y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7trm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra8an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh0ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fc8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64vxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rugq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojdw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pion5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmmoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wr43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmhv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr2c7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sckull" type="AnimatedSprite2D"]
+position = Vector2(110, 93)
+scale = Vector2(1.00138, 1)
+sprite_frames = SubResource("SpriteFrames_oq7iv")
