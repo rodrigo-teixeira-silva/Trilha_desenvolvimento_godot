@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv35555e6bb12"]
+[gd_scene load_steps=17 format=3 uid="uid://dv35555e6bb12"]
 
 [ext_resource type="Texture2D" uid="uid://c4jrqj3mppc31" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_liy72"]
 
@@ -7,6 +7,8 @@ script/source = "extends CharacterBody2D
 
 @export var speed: float = 3
 @export var suword_damage: int = 2
+@export var health: int = 100
+@export var death_prefab: PackedScene
 
 @onready var sprite: Sprite2D = $sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -121,6 +123,29 @@ func deal_damage_to_enemies() -> void:
 			var dot_product  = direction_to_enemy.dot(attack_direction)		
 			if dot_product >= 0.3:	
 				enemy.damage(suword_damage)
+				
+func damage(amount: int) -> void:
+	health -= amount
+	print(\"Player atingido\",amount, \". Avida total é\", health )
+	
+	#Receber dano
+	modulate = Color.RED
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.tween_property(self, \"modulate\", Color.WHITE, 0.3)
+	
+	# transição de inimigo morto
+	if health <= 0:
+		die()
+		
+func die() -> void:
+	if death_prefab:
+		var death_object = death_prefab.instantiate()
+		death_object.position = position
+		get_parent().add_child(death_object)
+			
+	queue_free()				
 			
 			
 		
@@ -404,7 +429,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
-radius = 93.0054
+radius = 141.004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkbax"]
+radius = 43.0116
 
 [node name="player" type="CharacterBody2D"]
 position = Vector2(120, 117)
@@ -436,3 +464,11 @@ position = Vector2(0, -27)
 position = Vector2(4, 7)
 shape = SubResource("CircleShape2D_oul6g")
 debug_color = Color(0.643137, 0.521569, 0.164706, 0)
+
+[node name="HitboxArea" type="Area2D" parent="."]
+position = Vector2(-1, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_rkbax")
+debug_color = Color(0.960784, 0.12549, 0.396078, 0)

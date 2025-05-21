@@ -1,20 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://duy0wsbhojx6o"]
+[gd_scene load_steps=5 format=3 uid="uid://duy0wsbhojx6o"]
 
 [ext_resource type="PackedScene" uid="uid://dv35555e6bb12" path="res://player/player.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://tq5jxap46edg" path="res://enemies/pawns.tscn" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://btrnxha8bll0t" path="res://enemies/sheep.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://0m7f2jmoq0xe" path="res://enemies/goblin.tscn" id="4_0hol4"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_0e48y")]
 
+[node name="Pawns3" parent="." instance=ExtResource("2_0e48y")]
+position = Vector2(1058, 187)
+
 [node name="Pawns" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(1024, 395)
+position = Vector2(1044, 303)
 
 [node name="Pawns2" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(867, 534)
+position = Vector2(1071, 403)
 
-[node name="Pawns3" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(876, 360)
+[node name="Sheep" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(981, 512)
 
-[node name="Pawns4" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(756, 404)
+[node name="Sheep2" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(925, 425)
+
+[node name="Sheep3" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(897, 298)
+
+[node name="Pawns4" parent="." instance=ExtResource("4_0hol4")]
+position = Vector2(861, 537)
