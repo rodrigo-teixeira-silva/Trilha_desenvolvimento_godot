@@ -413,6 +413,7 @@ script = SubResource("GDScript_oul6g")
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -28)
+scale = Vector2(0.983978, 1)
 texture = ExtResource("1_liy72")
 hframes = 6
 vframes = 8

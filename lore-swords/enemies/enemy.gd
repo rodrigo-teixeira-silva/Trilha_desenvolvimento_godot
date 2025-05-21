@@ -15,6 +15,7 @@ func damage(amount: int) -> void:
 	tween.set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self, "modulate", Color.WHITE, 0.3)
 	
+	# transição de inimigo morto
 	if health <= 0:
 		die()
 		
