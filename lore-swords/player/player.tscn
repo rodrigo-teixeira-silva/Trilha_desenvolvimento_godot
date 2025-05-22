@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://dv35555e6bb12"]
+[gd_scene load_steps=18 format=3 uid="uid://dv35555e6bb12"]
 
 [ext_resource type="Texture2D" uid="uid://c4jrqj3mppc31" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_liy72"]
+[ext_resource type="PackedScene" uid="uid://dhrkvvdtpgd27" path="res://misc/big_sckull.tscn" id="1_rkbax"]
 
 [sub_resource type="GDScript" id="GDScript_oul6g"]
 script/source = "extends CharacterBody2D
@@ -20,6 +21,8 @@ var is_running: bool = false
 var was_running: bool = false 
 var is_attacking: bool = false
 var attack_cooldown: float = 0.0
+var hitbox_cooldown: float = 0.0
+
 
 func _process(delta: float)-> void:
 	GameManager.player_position = position
@@ -131,18 +134,23 @@ func deal_damage_to_enemies() -> void:
 				
 func update_hitbox_detection(delta: float) -> void:
 	#Tempo para não receber dados 
-	#Frequência(2x por segundo)
-	#HitboxArea
+	hitbox_cooldown -= delta 
+	if hitbox_cooldown > 0: return
+	
+	#Frequência
+	hitbox_cooldown = 0.5
+
+	#detectar inimigos
 	var bodies = hitbox_area.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group(\"enemyes\"):
 			var enemy: Enemy = body
 			var damage_amount = 1
 			damage(damage_amount)
-			pass				
-				
-				
+							
 func damage(amount: int) -> void:
+	if health <=0: return
+	
 	health -= amount
 	print(\"Player atingido\", amount, \". Avida total é\", health )
 	
@@ -162,8 +170,8 @@ func die() -> void:
 		var death_object = death_prefab.instantiate()
 		death_object.position = position
 		get_parent().add_child(death_object)
-			
-	queue_free()				
+		print(\"Player morreu\")	
+		queue_free()					
 			
 			
 		
@@ -456,6 +464,7 @@ radius = 43.0116
 position = Vector2(120, 117)
 motion_mode = 1
 script = SubResource("GDScript_oul6g")
+death_prefab = ExtResource("1_rkbax")
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -28)
@@ -490,3 +499,5 @@ position = Vector2(-1, -36)
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_rkbax")
 debug_color = Color(0.960784, 0.12549, 0.396078, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
