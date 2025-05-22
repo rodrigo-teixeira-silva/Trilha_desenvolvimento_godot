@@ -13,6 +13,7 @@ script/source = "extends CharacterBody2D
 @onready var sprite: Sprite2D = $sprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sword_area: Area2D = $SwordArea
+@onready var hitbox_area: Area2D = $HitboxArea
  
 var input_vector: Vector2 = Vector2(0,0)
 var is_running: bool = false 
@@ -35,6 +36,9 @@ func _process(delta: float)-> void:
 	play_run_idle_animation()
 	if not is_attacking:
 		rotate_sprite()	
+		
+	# processa dano
+	update_hitbox_detection(delta)	
 		
 func _physics_process(delta: float) -> void:
 
@@ -109,6 +113,7 @@ func attack() -> void:
 	is_attacking = true	
 
 
+
 func deal_damage_to_enemies() -> void:
 	var bodies = sword_area.get_overlapping_bodies()
 	for body in bodies:
@@ -124,9 +129,22 @@ func deal_damage_to_enemies() -> void:
 			if dot_product >= 0.3:	
 				enemy.damage(suword_damage)
 				
+func update_hitbox_detection(delta: float) -> void:
+	#Tempo para não receber dados 
+	#Frequência(2x por segundo)
+	#HitboxArea
+	var bodies = hitbox_area.get_overlapping_bodies()
+	for body in bodies:
+		if body.is_in_group(\"enemyes\"):
+			var enemy: Enemy = body
+			var damage_amount = 1
+			damage(damage_amount)
+			pass				
+				
+				
 func damage(amount: int) -> void:
 	health -= amount
-	print(\"Player atingido\",amount, \". Avida total é\", health )
+	print(\"Player atingido\", amount, \". Avida total é\", health )
 	
 	#Receber dano
 	modulate = Color.RED
