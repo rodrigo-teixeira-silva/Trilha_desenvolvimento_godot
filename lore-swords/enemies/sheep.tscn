@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://btrnxha8bll0t"]
 
 [ext_resource type="Script" uid="uid://bxwdxw43eov6c" path="res://enemies/enemy.gd" id="1_4ya3h"]
-[ext_resource type="PackedScene" uid="uid://pr5odv0t6y41" path="res://misc/sckull.tscn" id="2_b7gr8"]
+[ext_resource type="PackedScene" uid="uid://b7br5gf0j6pp6" path="res://life/meat.tscn" id="2_qa1ig"]
 [ext_resource type="Script" uid="uid://jdtpfpdne5vk" path="res://enemies/behavior/follow.gd" id="4_rxsba"]
 [ext_resource type="Texture2D" uid="uid://d2x0kicdu8oxh" path="res://addons/Tiny Swords/Resources/Sheep/HappySheep_Bouncing.png" id="5_aam4p"]
 
@@ -62,7 +62,7 @@ height = 40.0
 [node name="Sheep" type="CharacterBody2D" groups=["enemyes"]]
 motion_mode = 1
 script = ExtResource("1_4ya3h")
-death_prefab = ExtResource("2_b7gr8")
+death_prefab = ExtResource("2_qa1ig")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 2)
