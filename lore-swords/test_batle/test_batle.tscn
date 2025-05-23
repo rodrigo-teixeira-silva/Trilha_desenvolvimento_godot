@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck7ylaod547x"]
 
 [ext_resource type="PackedScene" uid="uid://dv35555e6bb12" path="res://player/player.tscn" id="1_gc6gx"]
-[ext_resource type="PackedScene" uid="uid://tq5jxap46edg" path="res://enemies/pawns.tscn" id="2_rhku5"]
+[ext_resource type="PackedScene" uid="uid://b7br5gf0j6pp6" path="res://life/meat.tscn" id="2_gc6gx"]
 
 [node name="TestBatle" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_gc6gx")]
-position = Vector2(71, 271)
+position = Vector2(184, 264)
 
-[node name="Pawns" parent="." instance=ExtResource("2_rhku5")]
-position = Vector2(963, 234)
+[node name="Meat" parent="." instance=ExtResource("2_gc6gx")]
+position = Vector2(544, 276)
