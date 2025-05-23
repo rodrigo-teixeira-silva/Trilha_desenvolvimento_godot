@@ -69,7 +69,7 @@ autoplay = "default"
 frame = 5
 frame_progress = 0.755899
 script = ExtResource("2_1i1fc")
-regeneration_amount = null
+regeneration_amount = 20
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(3, 8)

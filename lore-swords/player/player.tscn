@@ -290,6 +290,7 @@ radius = 43.0116
 position = Vector2(120, 117)
 motion_mode = 1
 script = ExtResource("1_rkbax")
+health = 60
 
 [node name="sprite" type="Sprite2D" parent="."]
 position = Vector2(-2, -28)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://duy0wsbhojx6o"]
 
-[ext_resource type="PackedScene" uid="uid://dv35555e6bb12" path="res://player/player.tscn" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://n81x6vlpyroj" path="res://player/player.tscn" id="1_0e48y"]
 [ext_resource type="PackedScene" uid="uid://tq5jxap46edg" path="res://enemies/pawns.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://btrnxha8bll0t" path="res://enemies/sheep.tscn" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://0m7f2jmoq0xe" path="res://enemies/goblin.tscn" id="4_0hol4"]
