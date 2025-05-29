@@ -1,0 +1,153 @@
+[gd_scene load_steps=17 format=3 uid="uid://5qxj58iaf84d"]
+
+[ext_resource type="Texture2D" uid="uid://bx80ofpuodyhs" path="res://addons/Tiny Swords/UI/Bg_TinySword_Teste.png" id="1_a5oat"]
+[ext_resource type="Texture2D" uid="uid://b4dpvwf32wtlo" path="res://addons/Tiny Swords/UI/logo_TinySword_Teste.png" id="2_e2ah1"]
+[ext_resource type="Texture2D" uid="uid://cvbcysba0x1qw" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="3_e2ah1"]
+[ext_resource type="Theme" uid="uid://bkmh0clspykwt" path="res://UI/Ui_Theme_button.tres" id="3_w2w31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w2w31"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vhalm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8klc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehg83"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lnt7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2ah1"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2w31"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhalm"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8klc"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehg83"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnt7l"]
+atlas = ExtResource("3_e2ah1")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80jjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2ah1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2w31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhalm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8klc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehg83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnt7l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MENU" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_a5oat")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -152.0
+offset_right = 168.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Logo_jogo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_e2ah1")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_w2w31")
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_vhalm")
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_e8klc")
+
+[node name="start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_w2w31")
+text = "START"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ehg83")
+
+[node name="credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_w2w31")
+text = "CREDITS
+"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lnt7l")
+
+[node name="quitgame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_w2w31")
+text = "QUIT GAME"
+
+[node name="warrior2" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(424, 151)
+sprite_frames = SubResource("SpriteFrames_80jjr")
+autoplay = "default"
+frame_progress = 0.0651612
+flip_h = true
+
+[node name="warrior" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(-85, 151)
+sprite_frames = SubResource("SpriteFrames_80jjr")
+autoplay = "default"
+frame_progress = 0.128326
