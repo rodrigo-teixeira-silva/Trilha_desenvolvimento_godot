@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://6j0cftml2273"]
+
+[ext_resource type="Texture2D" uid="uid://bx80ofpuodyhs" path="res://addons/Tiny Swords/UI/Bg_TinySword_Teste.png" id="1_u2k6f"]
+[ext_resource type="Texture2D" uid="uid://b4dpvwf32wtlo" path="res://addons/Tiny Swords/UI/logo_TinySword_Teste.png" id="2_u2k6f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meysm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dijm5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2k6f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyd33"]
+bg_color = Color(0.958831, 0.240366, 0.115331, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.437066, 0.0169189, 0.023206, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_ybpd5"]
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_meysm")
+Button/styles/hover = SubResource("StyleBoxFlat_dijm5")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_u2k6f")
+Button/styles/normal = SubResource("StyleBoxFlat_vyd33")
+
+[node name="TileScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_u2k6f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -149.0
+offset_right = 170.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_u2k6f")
+
+[node name="start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ybpd5")
+text = "START"
+
+[node name="quitgame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT GAME"
+
+[node name="img" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
