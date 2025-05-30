@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://5qxj58iaf84d"]
+[gd_scene load_steps=18 format=3 uid="uid://5qxj58iaf84d"]
 
 [ext_resource type="Texture2D" uid="uid://bx80ofpuodyhs" path="res://addons/Tiny Swords/UI/Bg_TinySword_Teste.png" id="1_a5oat"]
+[ext_resource type="Script" uid="uid://mjc0xqdb517x" path="res://UI/tile_screen_02.gd" id="1_vhalm"]
 [ext_resource type="Texture2D" uid="uid://b4dpvwf32wtlo" path="res://addons/Tiny Swords/UI/logo_TinySword_Teste.png" id="2_e2ah1"]
 [ext_resource type="Texture2D" uid="uid://cvbcysba0x1qw" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Blue/Warrior_Blue.png" id="3_e2ah1"]
 [ext_resource type="Theme" uid="uid://bkmh0clspykwt" path="res://UI/Ui_Theme_button.tres" id="3_w2w31"]
@@ -72,11 +73,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vhalm")
 
 [node name="BG" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_a5oat")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -125,12 +130,14 @@ layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_ehg83")
 
 [node name="credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_w2w31")
 text = "CREDITS
 "
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_lnt7l")
 
@@ -151,3 +158,6 @@ position = Vector2(-85, 151)
 sprite_frames = SubResource("SpriteFrames_80jjr")
 autoplay = "default"
 frame_progress = 0.128326
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quitgame" to="." method="_on_quitgame_pressed"]
