@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://coih5mrx67nws"]
+[gd_scene load_steps=5 format=3 uid="uid://coih5mrx67nws"]
 
+[ext_resource type="Script" uid="uid://2bmmx5ebpnbd" path="res://UI/pause_menu.gd" id="1_jfm1e"]
 [ext_resource type="Theme" uid="uid://c08d4fxkdlwfb" path="res://UI/defolth_pause_menu.tres" id="1_ltd3m"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltd3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfm1e"]
+
 [node name="pause_MENU" type="CanvasLayer"]
+process_mode = 3
+visible = false
+script = ExtResource("1_jfm1e")
 
 [node name="BG" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -27,7 +35,18 @@ layout_mode = 2
 theme = ExtResource("1_ltd3m")
 text = "RESUME"
 
+[node name="HSeparator" type="HSeparator" parent="menu_holder"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_ltd3m")
+
+[node name="HSeparator2" type="HSeparator" parent="menu_holder"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_jfm1e")
+
 [node name="quit_game" type="Button" parent="menu_holder"]
 layout_mode = 2
 theme = ExtResource("1_ltd3m")
 text = "QUIT GAME"
+
+[connection signal="pressed" from="menu_holder/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="menu_holder/quit_game" to="." method="_on_quit_game_pressed"]

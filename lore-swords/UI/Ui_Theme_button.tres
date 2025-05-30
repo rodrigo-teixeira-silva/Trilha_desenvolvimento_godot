@@ -1,14 +1,20 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bkmh0clspykwt"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bkmh0clspykwt"]
+
+[ext_resource type="FontFile" uid="uid://beve1ypl05kaj" path="res://UI/Minecraft.ttf" id="1_jxnm8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2ah1"]
 bg_color = Color(0.612224, 0.26743, 0.0932763, 1)
 border_color = Color(0.156386, 0.377974, 0.170656, 1)
 border_blend = true
+expand_margin_top = 6.0
+expand_margin_bottom = 2.0
 shadow_color = Color(0.419608, 0.176471, 0.305882, 1)
 shadow_size = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w2w31"]
 bg_color = Color(0.603922, 0.247059, 0.337255, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhalm"]
 bg_color = Color(0.559823, 0.111763, 0.243815, 1)
@@ -26,11 +32,14 @@ corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
+expand_margin_top = 6.0
+expand_margin_bottom = 2.0
 shadow_color = Color(0.140447, 0.140447, 0.140447, 0.662745)
 shadow_size = 1
 shadow_offset = Vector2(1, 1)
 
 [resource]
+Button/fonts/font = ExtResource("1_jxnm8")
 Button/styles/focus = SubResource("StyleBoxFlat_e2ah1")
 Button/styles/hover = SubResource("StyleBoxFlat_w2w31")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_vhalm")

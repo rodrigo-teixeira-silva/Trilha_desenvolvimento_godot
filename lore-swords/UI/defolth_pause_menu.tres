@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c08d4fxkdlwfb"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c08d4fxkdlwfb"]
+
+[ext_resource type="FontFile" uid="uid://beve1ypl05kaj" path="res://UI/Minecraft.ttf" id="1_snnn4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6d43"]
 
@@ -9,10 +11,12 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_03fe5"]
 
 [resource]
+default_font_size = 26
 Button/colors/font_color = Color(0.915966, 0.912692, 7.70092e-07, 1)
 Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_color = Color(0.831373, 0.517647, 0.141176, 1)
 Button/colors/font_pressed_color = Color(0.612224, 0.26743, 0.0932763, 1)
+Button/fonts/font = ExtResource("1_snnn4")
 Button/styles/focus = SubResource("StyleBoxEmpty_v6d43")
 Button/styles/hover = SubResource("StyleBoxEmpty_ltd3m")
 Button/styles/normal = SubResource("StyleBoxEmpty_jfm1e")

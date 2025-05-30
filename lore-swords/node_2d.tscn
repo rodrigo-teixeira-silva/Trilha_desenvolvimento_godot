@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=4 uid="uid://duy0wsbhojx6o"]
+[gd_scene load_steps=24 format=4 uid="uid://duy0wsbhojx6o"]
 
 [ext_resource type="PackedScene" uid="uid://n81x6vlpyroj" path="res://player/player.tscn" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://cuem03jxxetu1" path="res://addons/Tiny Swords/Terrain/Water/Water.png" id="1_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://coih5mrx67nws" path="res://UI/pause_menu.tscn" id="1_x0ka3"]
 [ext_resource type="PackedScene" uid="uid://tq5jxap46edg" path="res://enemies/pawns.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://b0tjf3nk1xaow" path="res://addons/Tiny Swords/Terrain/Ground/Tilemap_Flat.png" id="2_kdubu"]
 [ext_resource type="Texture2D" uid="uid://kp07d2ioqul2" path="res://addons/Tiny Swords/Terrain/Ground/Tilemap_Elevation.png" id="3_d21ai"]
@@ -1687,6 +1688,8 @@ pattern_3 = SubResource("TileMapPattern_x0ka3")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="pause_MENU" parent="." instance=ExtResource("1_x0ka3")]
+
 [node name="bg_mar" type="Sprite2D" parent="."]
 position = Vector2(617, 315)
 scale = Vector2(51.7344, 39.875)
@@ -1697,7 +1700,7 @@ position = Vector2(38, 185)
 tile_set = SubResource("TileSet_rj586")
 format = 2
 
-[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_set = SubResource("TileSet_rj586")
 
