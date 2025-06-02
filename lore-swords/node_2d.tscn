@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://duy0wsbhojx6o"]
+[gd_scene load_steps=25 format=4 uid="uid://duy0wsbhojx6o"]
 
 [ext_resource type="PackedScene" uid="uid://n81x6vlpyroj" path="res://player/player.tscn" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://cuem03jxxetu1" path="res://addons/Tiny Swords/Terrain/Water/Water.png" id="1_q6r6c"]
@@ -12,6 +12,14 @@
 [ext_resource type="Texture2D" uid="uid://b6n8kh1dl01ap" path="res://addons/Tiny Swords/Deco/08.png" id="5_hqns4"]
 [ext_resource type="Texture2D" uid="uid://cvcyfipfu603d" path="res://addons/Tiny Swords/Deco/06.png" id="6_x0ka3"]
 [ext_resource type="Texture2D" uid="uid://qxu8ahbukelm" path="res://addons/Tiny Swords/Resources/Trees/Tree.png" id="7_hqns4"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_x0ka3"]
+frames = 6
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
+frame_4/duration = 1.0
+frame_5/duration = 1.0
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_0h7mo"]
 tile_data = PackedInt32Array(0, 2, 0)
@@ -1688,7 +1696,29 @@ pattern_3 = SubResource("TileMapPattern_x0ka3")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="icones" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="icone_personagem" type="TextureRect" parent="HUD/Control/icones"]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_x0ka3")
+
+[node name="vidas_personagem" type="Label" parent="HUD/Control/icones"]
+layout_mode = 2
+text = "x 00"
+
 [node name="pause_MENU" parent="." instance=ExtResource("1_x0ka3")]
+visible = false
 
 [node name="bg_mar" type="Sprite2D" parent="."]
 position = Vector2(617, 315)
@@ -1725,6 +1755,10 @@ position = Vector2(62, -62)
 [node name="Deco" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAAqAPr/AgAAAAAAAAA4AP7/AgAAAAAAAAD6/wQAAgAAAAAAAAD6//z/AwAAAAEAAAAxAAEAAwAAAAEAAAAgAP3/AwAAAAEAAABEAPj/AwAAAAEAAAA8APj/AwAAAAEAAAAjAPj/BAAAAAAAAAD3//7/BAAAAAAAAAACABMABAAAAAAAAAD4/xcABAAAAAAAAABGACgABAAAAAAAAAANAAsAAgAAAAAAAAANAAQABAAAAAAAAAAHAAUAAwAAAAEAAABJABsABAAAAAAAAABSAAMABAAAAAAAAAA5APL/BAAAAAAAAAAKABwABQACAAAAAAD///7/BQACAAAAAAA1APX/BQACAAAAAAA4APf/BQACAAAAAAA/APT/BQACAAAAAABGAPv/BQACAAAAAAAlAPz/BQACAAAAAAAZACAABQACAAAAAADz/xcABQACAAAAAAD2/xwABQACAAAAAAA8AB4ABQACAAAAAABIAA8ABQACAAAAAAA=")
+tile_set = SubResource("TileSet_rj586")
+
+[node name="Layer2" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
 tile_set = SubResource("TileSet_rj586")
 
 [node name="Pawns3" parent="." instance=ExtResource("2_0e48y")]

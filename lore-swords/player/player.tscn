@@ -309,6 +309,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.0745098)
 libraries = {
 &"": SubResource("AnimationLibrary_g6k8r")
 }
+autoplay = "idle"
 
 [node name="SwordArea" type="Area2D" parent="."]
 position = Vector2(0, -27)

@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://coih5mrx67nws"]
+[gd_scene load_steps=7 format=3 uid="uid://coih5mrx67nws"]
 
 [ext_resource type="Script" uid="uid://2bmmx5ebpnbd" path="res://UI/pause_menu.gd" id="1_jfm1e"]
 [ext_resource type="Theme" uid="uid://c08d4fxkdlwfb" path="res://UI/defolth_pause_menu.tres" id="1_ltd3m"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_jfm1e"]
+action = &"ui_cancel"
+
+[sub_resource type="Shortcut" id="Shortcut_03fe5"]
+events = [SubResource("InputEventAction_jfm1e")]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltd3m"]
 
@@ -9,7 +15,6 @@
 
 [node name="pause_MENU" type="CanvasLayer"]
 process_mode = 3
-visible = false
 script = ExtResource("1_jfm1e")
 
 [node name="BG" type="ColorRect" parent="."]
@@ -33,6 +38,7 @@ grow_vertical = 2
 [node name="resume" type="Button" parent="menu_holder"]
 layout_mode = 2
 theme = ExtResource("1_ltd3m")
+shortcut = SubResource("Shortcut_03fe5")
 text = "RESUME"
 
 [node name="HSeparator" type="HSeparator" parent="menu_holder"]
