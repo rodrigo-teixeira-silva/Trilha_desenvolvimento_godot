@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7br5gf0j6pp6"]
+[gd_scene load_steps=13 format=3 uid="uid://b7br5gf0j6pp6"]
 
 [ext_resource type="Texture2D" uid="uid://co1dt0dkbiaiu" path="res://addons/Tiny Swords/Resources/Resources/M_Spawn.png" id="1_03eqq"]
 [ext_resource type="Script" uid="uid://b3ne0b5npge6q" path="res://life/life_regenerator.gd" id="2_1i1fc"]
+[ext_resource type="Script" uid="uid://dod8i1bvdl8v3" path="res://life/controle.gd" id="3_pg1jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1i1fc"]
 atlas = ExtResource("1_03eqq")
@@ -73,7 +74,10 @@ regeneration_amount = 20
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(3, 8)
+script = ExtResource("3_pg1jn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_pg1jn")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

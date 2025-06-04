@@ -150,14 +150,14 @@ text = "QUIT GAME"
 position = Vector2(424, 151)
 sprite_frames = SubResource("SpriteFrames_80jjr")
 autoplay = "default"
-frame_progress = 0.0651612
+frame_progress = 0.622409
 flip_h = true
 
 [node name="warrior" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 position = Vector2(-85, 151)
 sprite_frames = SubResource("SpriteFrames_80jjr")
 autoplay = "default"
-frame_progress = 0.128326
+frame_progress = 0.893385
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quitgame" to="." method="_on_quitgame_pressed"]

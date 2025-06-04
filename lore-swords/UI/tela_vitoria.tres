@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b7jokfcjo0cyk"]
+
+[ext_resource type="FontFile" uid="uid://beve1ypl05kaj" path="res://UI/Minecraft.ttf" id="1_vk2q0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsdld"]
+bg_color = Color(0.603922, 0.247059, 0.337255, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw3hn"]
+bg_color = Color(0.831373, 0.517647, 0.141176, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po3aj"]
+bg_color = Color(0.419608, 0.176471, 0.305882, 1)
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(0.843006, 0.343554, 0.104443, 1)
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_vk2q0")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_nsdld")
+Button/styles/hover_pressed = null
+Button/styles/normal = SubResource("StyleBoxFlat_sw3hn")
+Button/styles/pressed = SubResource("StyleBoxFlat_po3aj")

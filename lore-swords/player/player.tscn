@@ -328,5 +328,3 @@ shape = SubResource("CircleShape2D_rkbax")
 debug_color = Color(0.960784, 0.12549, 0.396078, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Camera2D2" type="Camera2D" parent="."]
