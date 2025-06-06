@@ -1,23 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://3o7uveoh8hok"]
+[gd_scene load_steps=7 format=3 uid="uid://3o7uveoh8hok"]
 
-[ext_resource type="Texture2D" uid="uid://dmi5j3g0c1s5s" path="res://addons/Tiny Swords/UI/knigth_vitoria.png" id="1_nsdld"]
+[ext_resource type="Texture2D" uid="uid://bx80ofpuodyhs" path="res://addons/Tiny Swords/UI/Bg_TinySword_Teste.png" id="1_po3aj"]
 [ext_resource type="FontFile" uid="uid://beve1ypl05kaj" path="res://UI/Minecraft.ttf" id="2_sw3hn"]
+[ext_resource type="Texture2D" uid="uid://c4jrqj3mppc31" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="2_yxaj2"]
 [ext_resource type="Theme" uid="uid://b7jokfcjo0cyk" path="res://UI/tela_vitoria.tres" id="3_sw3hn"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0m0h4"]
+blend_mode = 3
+light_mode = 2
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6d782"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_po3aj")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 5
+material = SubResource("CanvasItemMaterial_0m0h4")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0253638, 0.0253638, 0.0253638, 1)
+color = Color(0.7469, 0.772928, 0.97, 0.678431)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(296, 321)
-scale = Vector2(0.90989, 0.914365)
-texture = ExtResource("1_nsdld")
+position = Vector2(326, 330)
+scale = Vector2(2.94, 2.952)
+texture = ExtResource("2_yxaj2")
+region_enabled = true
+region_rect = Rect2(615, 1007, 146, 117)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -54,6 +70,14 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("3_sw3hn")
 text = "RESUME"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6d782")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6d782")
 
 [node name="quit_game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

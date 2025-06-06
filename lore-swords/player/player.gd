@@ -177,6 +177,5 @@ func heal(amount: int) -> int:
 		health = max_health
 		print("Player recebeu cura", amount, "Avida agora é", health,"/", max_health)
 	return health
-		
-				 			
+						 			
 		
